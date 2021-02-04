@@ -50,9 +50,14 @@ public class HelloServlet extends HttpServlet {
 	
 		response.setContentType("text/html");
 	
-		String message=request.getParameter("msg");
+		String fname=request.getParameter("firstname");
+		String lname=request.getParameter("lastname");
+		String gen=request.getParameter("gender");
 		
-		pw.print("Hello :"+message);
+		pw.println("FirstName:"+fname);
+		pw.println("LastName :"+lname);
+		pw.println("Gender :"+gen);
+		
 	
 		}
 		catch(Exception e) {
