@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<display-name>HelloServletApp</display-name>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>helloapp</servlet-name>
+		<servlet-class>HelloApp.HelloServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+
+		<servlet-name>helloapp</servlet-name>
+		<url-pattern>/hello</url-pattern>
+
+	</servlet-mapping>
+
+
+
+</web-app>
