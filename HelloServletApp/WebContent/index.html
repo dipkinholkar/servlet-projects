@@ -1,20 +1,44 @@
+<html>
+<script>
+
+function validation()
+{
+	var fn=document.forms["validate"]["firstname"].value;
+	var ln=document.forms["validate"]["lastname"].value;
+	
+	
+	if(fn=="" || ln=="")
+		{
+		alert("First and Last name must be filled out");
+		return false;
+		}
+	
+}
 
 
-<h1>Welcome Registration page</h1>
 
-<form action="hello" method="">
+
+</script>
+
+<body bgcolor="orange">
+
+
+
+<h1 style="color:pink;">Welcome to Registration</h1>
+
+<form  name="validate" action="hello" method="get" onsubmit="return validation()">
 
 	First Name :<input type="text" name="firstname"><br><br>
 	Last  Name :<input type="text" name="lastname">
 	<br>
 	<br>
-Gender:	<input type="radio" id="male" name="gender" value="male">
+Gender:	<input type="radio"  name="gender" value="male">
   <label for="male">Male</label>
   
-  <input type="radio" id="female" name="gender" value="female">
+  <input type="radio" name="gender" value="female" default>
   <label for="female">Female</label>
   
-  <input type="radio" id="other" name="gender" value="other">
+  <input type="radio"  name="gender" value="other">
   <label for="other">Other</label>
 	<br>
 	<br>
@@ -23,3 +47,6 @@ Gender:	<input type="radio" id="male" name="gender" value="male">
 	
 
 </form>
+
+</body>
+</html>

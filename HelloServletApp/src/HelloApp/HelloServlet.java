@@ -2,6 +2,10 @@ package HelloApp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -45,7 +49,7 @@ public class HelloServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		try {
+		
 		PrintWriter pw=response.getWriter();
 	
 		response.setContentType("text/html");
@@ -53,18 +57,40 @@ public class HelloServlet extends HttpServlet {
 		String fname=request.getParameter("firstname");
 		String lname=request.getParameter("lastname");
 		String gen=request.getParameter("gender");
+
+		try
+		{
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 		
-		pw.println("FirstName:"+fname);
-		pw.println("LastName :"+lname);
-		pw.println("Gender :"+gen);
+		String query="insert into register values('"+fname+"' ,'"+lname+"' ,'"+gen+"')";
 		
-	
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","dipak","DIPAK");
+		
+		Statement stat=con.createStatement();
+		
+		ResultSet rs=stat.executeQuery(query);
+		
+		if(rs!=null)
+		{
+			 response.sendRedirect("success.html"); 
+		}else
+		{
+			 response.sendRedirect("fail.html"); 	
+		}
+		
+		
+		
+		con.close();
+		stat.close();
+		rs.close();
 		}
 		catch(Exception e) {
 		
 			System.out.print(e);
 		}
-		}
-	
-	}
+		
+		
 
+		
+	}
+	}
