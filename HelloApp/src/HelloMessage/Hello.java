@@ -30,7 +30,8 @@ public class Hello implements Servlet {
 		String v=req.getParameter("submit");
 		
 		pw.print("v"+v);
-		
+		Hello h=new Hello();
+		System.out.println("->getServletInformation::"+h.getServletInfo());
 	}
 	
 	public void destroy() {pw.print("destroy");}
@@ -42,6 +43,8 @@ public class Hello implements Servlet {
 	
 	public String getServletInfo()
 	{
-		return "tomcat";
+		return "copyright 2007-1010";
 	}
+	
+	
 }
