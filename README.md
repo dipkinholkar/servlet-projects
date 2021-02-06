@@ -24,8 +24,8 @@ Create a local **Oracle** server.
 Execute scripts **1-SCHEMA.sql**, **2-PRIVILEGES.sql** and **3-ENTRIES.sql** in config/db.  
 Schema created: **computer-database-db**
 Tables created: **company, computer**  
-User created: `admincdb`
-with password: `qwerty1234`
+User created: dipak
+with password: 
 
 ### Bonus
 If you already know about [Docker](https://docker.io):  
